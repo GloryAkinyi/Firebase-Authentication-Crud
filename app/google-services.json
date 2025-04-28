@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "85697796990",
+    "project_id": "chromelab-5e4de",
+    "storage_bucket": "chromelab-5e4de.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85697796990:android:3f72dc49814aed9e7ef12f",
+        "android_client_info": {
+          "package_name": "com.glory.chromelabapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD98tHRXJo3zLZ95jge-M_TLm6FIiWoHxU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
