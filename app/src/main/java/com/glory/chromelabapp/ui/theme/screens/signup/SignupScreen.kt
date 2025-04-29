@@ -134,8 +134,6 @@ fun SignupScreen(navController:NavHostController){
         val authViewModel = AuthViewModel(navController, context)
         Button(onClick = {
             authViewModel.signup(name, email, password,confpassword)
-            Toast.makeText(context, "Registered Successfully", Toast.LENGTH_LONG).show()
-            navController.navigate(ROUT_LOGIN)
 
         },
             colors = ButtonDefaults.buttonColors(Color.DarkGray),

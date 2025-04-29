@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.navigation.NavController
 import com.glory.chromelabapp.models.User
 import com.glory.chromelabapp.navigation.ROUT_HOME
+import com.glory.chromelabapp.navigation.ROUT_LOGIN
 import com.glory.chromelabapp.navigation.ROUT_SIGNUP
 
 import com.google.firebase.auth.FirebaseAuth
