@@ -14,11 +14,13 @@ import androidx.compose.ui.*
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.*
 import androidx.navigation.NavHostController
 import com.glory.chromelabapp.data.PropertyViewModel
 import com.glory.chromelabapp.models.Property
 import com.glory.chromelabapp.navigation.ROUT_ADD_PROPERTY
+import com.glory.chromelabapp.navigation.ROUT_VIEW_PROPERTY
 import com.google.firebase.auth.FirebaseAuth
 
 @Composable
@@ -38,26 +40,30 @@ fun PropertyListScreen(navController: NavHostController) {
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFF5F5F5))
-            .padding(16.dp)
+            .padding(30.dp),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(
-            text = "Property Listings",
-            style = MaterialTheme.typography.headlineSmall,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.fillMaxWidth(),
-        )
+
+        Spacer(modifier = Modifier.height(40.dp))
+
+        TextButton(
+            onClick = { navController.navigate(ROUT_ADD_PROPERTY) }
+        ) {
+            Text(text = "Add New Property")
+        }
+
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        Button(
-            onClick = { navController.navigate(ROUT_ADD_PROPERTY) },
-            modifier = Modifier.fillMaxWidth(),
-            colors = ButtonDefaults.buttonColors(Color.Black)
-        ) {
-            Text(text = "Add Property", color = Color.White)
-        }
+        Text(
+            text = "Property Listings",
+            fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Center,
+            fontSize = 20.sp
+        )
 
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(10.dp))
 
         LazyColumn(verticalArrangement = Arrangement.spacedBy(12.dp)) {
             items(properties) { property ->

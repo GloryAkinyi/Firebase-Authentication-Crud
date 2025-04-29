@@ -3,12 +3,13 @@ package com.glory.chromelabapp.ui.theme.screens.property
 import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,6 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.glory.chromelabapp.data.PropertyViewModel
@@ -38,13 +40,14 @@ fun AddPropertyScreen(navController: NavHostController) {
             .fillMaxSize()
             .padding(16.dp)
             .verticalScroll(rememberScrollState()),
-        verticalArrangement = Arrangement.Top,
+        verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
             text = "Add New Property",
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(bottom = 16.dp)
+            modifier = Modifier.padding(bottom = 16.dp),
+            fontSize = 20.sp
         )
 
         OutlinedTextField(
@@ -96,21 +99,22 @@ fun AddPropertyScreen(navController: NavHostController) {
                     Toast.makeText(context, "All fields are required", Toast.LENGTH_SHORT).show()
                 }
             },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth().padding(start = 20.dp,end=20.dp),
+            shape = RoundedCornerShape(10.dp)
         ) {
             Text("Upload Property")
         }
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        OutlinedButton(
-            onClick = {
-              navController.navigate(ROUT_VIEW_PROPERTY)
-                      },
-            modifier = Modifier.fillMaxWidth()
+
+        TextButton(
+            onClick = { navController.navigate(ROUT_VIEW_PROPERTY) }
         ) {
-            Text("View Properties")
+            Text(text = "View Properties")
         }
+
+
     }
 }
 
