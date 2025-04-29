@@ -1,6 +1,7 @@
 package com.glory.chromelabapp.ui.theme.screens.signup
 
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -133,6 +134,9 @@ fun SignupScreen(navController:NavHostController){
         val authViewModel = AuthViewModel(navController, context)
         Button(onClick = {
             authViewModel.signup(name, email, password,confpassword)
+            Toast.makeText(context, "Registered Successfully", Toast.LENGTH_LONG).show()
+            navController.navigate(ROUT_LOGIN)
+
         },
             colors = ButtonDefaults.buttonColors(Color.DarkGray),
             modifier = Modifier

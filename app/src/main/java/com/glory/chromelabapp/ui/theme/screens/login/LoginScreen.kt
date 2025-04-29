@@ -111,7 +111,7 @@ fun LoginScreen(navController:NavHostController){
                     .fillMaxWidth()
                     .padding(start = 20.dp, end = 20.dp),
             ) {
-                Text(text = "SignIn", fontFamily = FontFamily.SansSerif)
+                Text(text = "Login", fontFamily = FontFamily.SansSerif)
             }
 
 
@@ -125,7 +125,7 @@ fun LoginScreen(navController:NavHostController){
                 .fillMaxWidth()
                 .padding(start = 20.dp, end = 20.dp),
             shape = RoundedCornerShape(5.dp)) {
-            Text(text = "SignUp", fontFamily = FontFamily.SansSerif)
+            Text(text = "Register", fontFamily = FontFamily.SansSerif)
         }
     }
 
