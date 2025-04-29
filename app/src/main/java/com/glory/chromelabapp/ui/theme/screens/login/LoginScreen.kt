@@ -44,6 +44,7 @@ import com.glory.chromelabapp.data.AuthViewModel
 import com.glory.chromelabapp.navigation.ROUT_SIGNUP
 
 
+@SuppressLint("SuspiciousIndentation")
 @Composable
 fun LoginScreen(navController:NavHostController){
     Column(
@@ -82,15 +83,6 @@ fun LoginScreen(navController:NavHostController){
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        var passwordVisible by remember { mutableStateOf(false) }
-        // Function to determine visual transformation based on visibility
-        val visualTransformation: VisualTransformation =
-            if (passwordVisible) VisualTransformation.None
-            else PasswordVisualTransformation()
-        // Function to switch the password visibility
-        fun togglePasswordVisibility() {
-            passwordVisible = !passwordVisible
-        }
 
         OutlinedTextField(
             value = password,
@@ -102,7 +94,7 @@ fun LoginScreen(navController:NavHostController){
                 .fillMaxWidth()
                 .padding(start = 20.dp, end = 20.dp),
             shape = RoundedCornerShape(5.dp),
-            visualTransformation = visualTransformation
+            visualTransformation = PasswordVisualTransformation()
 
         )
 

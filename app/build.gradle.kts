@@ -62,7 +62,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-
     //Firebase
    // implementation("com.google.firebase:firebase-auth:22.3.0")
   //  implementation("com.google.firebase:firebase-database-ktx:21.0.0")
