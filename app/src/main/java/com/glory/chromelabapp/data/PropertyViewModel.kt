@@ -22,12 +22,18 @@ class PropertyViewModel(var navController: NavHostController, var context: Conte
     }
 
     // Upload property without image
-    fun uploadProperty(
-        title: String,
-        description: String,
-        price: String,
-        location: String
-    ) {
+
+    fun getPropertyById(propertyId: String, callback: (Property?) -> Unit) {
+        databaseReference.child(propertyId).get().addOnSuccessListener { snapshot ->
+            val property = snapshot.getValue(Property::class.java)
+            callback(property)
+        }.addOnFailureListener {
+            callback(null)
+        }
+    }
+
+    fun uploadProperty(title: String, description: String, price: String, location: String) {
+
         val propertyId = System.currentTimeMillis().toString()
 
         val currentUser = FirebaseAuth.getInstance().currentUser
@@ -60,15 +66,7 @@ class PropertyViewModel(var navController: NavHostController, var context: Conte
         Toast.makeText(context, "Property deleted successfully", Toast.LENGTH_SHORT).show()
     }
 
-    // Updating details in the database
-    fun getPropertyById(propertyId: String, callback: (Property?) -> Unit) {
-        databaseReference.child(propertyId).get().addOnSuccessListener { snapshot ->
-            val property = snapshot.getValue(Property::class.java)
-            callback(property)
-        }.addOnFailureListener {
-            callback(null)
-        }
-    }
+
 
     // Fetching details from the database
     fun allProperties(
