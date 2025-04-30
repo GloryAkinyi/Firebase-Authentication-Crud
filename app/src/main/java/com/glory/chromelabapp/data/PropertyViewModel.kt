@@ -21,17 +21,8 @@ class PropertyViewModel(var navController: NavHostController, var context: Conte
         }
     }
 
-    // Upload property without image
 
-    fun getPropertyById(propertyId: String, callback: (Property?) -> Unit) {
-        databaseReference.child(propertyId).get().addOnSuccessListener { snapshot ->
-            val property = snapshot.getValue(Property::class.java)
-            callback(property)
-        }.addOnFailureListener {
-            callback(null)
-        }
-    }
-
+    // Upload property
     fun uploadProperty(title: String, description: String, price: String, location: String) {
 
         val propertyId = System.currentTimeMillis().toString()
@@ -93,7 +84,17 @@ class PropertyViewModel(var navController: NavHostController, var context: Conte
         return properties
     }
 
-    // Add updateProperty method
+    // Update Property method
+
+    fun getPropertyById(propertyId: String, callback: (Property?) -> Unit) {
+        databaseReference.child(propertyId).get().addOnSuccessListener { snapshot ->
+            val property = snapshot.getValue(Property::class.java)
+            callback(property)
+        }.addOnFailureListener {
+            callback(null)
+        }
+    }
+
     fun updateProperty(
         propertyId: String,
         title: String,
